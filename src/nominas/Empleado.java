@@ -1,8 +1,10 @@
 package nominas;
 
+import test.*;
+
 public class Empleado {
-	public enum TipoEmpleado{Vendedor, Encargado}
-	float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
+	public enum TipoEmpleado{Vendedor, Encargado, Otro}
+	public static float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
 		if(ventasMes < 0 || horasExtra < 0) {
 			return -1;
 		} else {
@@ -25,9 +27,11 @@ public class Empleado {
 			} else {return -1;}
 		}
 	}
-	float calculoNominaNeta(float nominaBruta) {
+	public static float calculoNominaNeta(float nominaBruta) {
 		float retencion;
-		if(nominaBruta < 2100) {
+		if(nominaBruta < 0) {
+			return -1;
+		} else if(nominaBruta < 2100 && nominaBruta >= 0) {
 			retencion = 0;
 		} else if(nominaBruta >= 2500) {
 			retencion = nominaBruta * 0.18f;
