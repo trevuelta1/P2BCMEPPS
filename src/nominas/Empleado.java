@@ -1,7 +1,5 @@
 package nominas;
 
-import test.*;
-
 public class Empleado {
 	public enum TipoEmpleado{Vendedor, Encargado, Otro}
 	public static float calculoNominaBruta(TipoEmpleado tipo, float ventasMes, float horasExtra) {
